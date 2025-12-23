@@ -10,7 +10,7 @@ class Product(models.Model):
     description = models.TextField()
     collections = models.ManyToManyField(Collection, related_name='products')
     features = models.JSONField()
-    images = models.ImageField(upload_to='product_images/')
+    image = models.ImageField(upload_to='product_images/', blank=True, null=True)
     free_shipping = models.BooleanField(default=False)
     available_in = models.CharField(max_length=50)
     sold = models.IntegerField(default=0)
