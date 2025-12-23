@@ -2,6 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .viewsets import ProductViewSet, VariantViewSet, BuyTogetherViewSet, RelatedProductViewSet
 from .views import products_by_category, products_by_vendor
+from .views import collections_list
 
 
 router = DefaultRouter()
@@ -20,4 +21,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/products/category/<int:category_id>/', products_by_category, name='products_by_category'),
     path('api/products/vendor/<int:vendor_id>/', products_by_vendor, name='products_by_vendor'),
+    path('api/collections/', collections_list, name='collections_list'),
 ]
